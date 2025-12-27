@@ -47,5 +47,8 @@ class AgentState(TypedDict, total=False):
     # TODO - comment needed here.
     analysis: str
 
+    # TODO - comment needed here.
+    draft_report: str
+
     # (Future phases will add fields like:
-    # analysis, draft_report, final_report)
+    # final_report)
