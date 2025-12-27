@@ -41,5 +41,8 @@ class AgentState(TypedDict, total=False):
     # Optional debug / trace messages added by agents
     logs: List[str]
 
+    # TODO - comment needed here.
+    research_notes: List[str]
+
     # (Future phases will add fields like:
-    # research_notes, analysis, draft_report, final_report)
+    # analysis, draft_report, final_report)
