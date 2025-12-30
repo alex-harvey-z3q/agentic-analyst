@@ -2,7 +2,7 @@
 
 A learning project for **Agentic AI** using a **Retrieval-Augmented Generation (RAG)** system exploring how multiple AI (LLM) agents can collaborate to perform analysis over a **text corpus**. In the example project, the text corpus is all lyrics to all Beatles songs.
 
-The project embeds and indexes documents using [Chroma](https://pypi.org/project/chromadb/), retrieves relevant context, and then coordinates multiple agents (planner, researcher, analyst, writer) to produce synthesised outputs such as thematic analyses and executive-style briefs.
+The project embeds and indexes documents using [Chroma](https://pypi.org/project/chromadb/), retrieves relevant context, and then coordinates multiple agents coordinates multiple agents (planner, researcher, analyst, writer, reviewer) to produce synthesised outputs such as thematic analyses and executive-style briefs.
 
 This is a learning and research project focused on **understanding agentic AI behavior**, not a polished production system.
 
@@ -10,11 +10,12 @@ This is a learning and research project focused on **understanding agentic AI be
 
 ## What this project explores
 
-- Multi-agent workflows (planner → researcher → analyst → writer)
+- Multi-agent workflows (planner → researcher → analyst → writer → reviewer)
 - Retrieval bias and coverage gaps in RAG pipelines
 - Variance and divergence across repeated agent runs
 - The difference between *coherent narratives* and *evidence-grounded analysis*
 - How unconstrained agents invent structure when schemas are absent
+- Evidence drift and hallucination risk in unconstrained multi-agent systems
 
 ---
 
@@ -26,8 +27,9 @@ This is a learning and research project focused on **understanding agentic AI be
 4. An analyst agent synthesizes themes and patterns
 5. A writer agent produces a final report, including limitations
 
-⚠️ **Important:**
-The writer only sees retrieved evidence and upstream notes — not the full corpus. Apparent “data gaps” in outputs often reflect retrieval or aggregation limits, not missing source material.
+⚠️ **Important**:
+Each downstream agent only sees outputs from upstream agents plus retrieved evidence.
+Apparent “data gaps” or claims about missing material often reflect **retrieval scope, planner framing, or synthesis constraints**, not missing source data.
 
 ---
 
