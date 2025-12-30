@@ -41,14 +41,18 @@ class AgentState(TypedDict, total=False):
     # Optional debug / trace messages added by agents
     logs: List[str]
 
-    # TODO - comment needed here.
+    # Researcher output: evidence-based notes per sub-task
+    # (e.g. lyric excerpts, song references, short interpretations)
     research_notes: List[str]
 
-    # TODO - comment needed here.
+    # Analyst output: synthesized insights and patterns
+    # derived from the research notes
     analysis: str
 
-    # TODO - comment needed here.
+    # Writer output: polished draft report
+    # structured for readability and presentation
     draft_report: str
 
-    # (Future phases will add fields like:
-    # final_report)
+    # Reviewer output: final, quality-checked report
+    # with unsupported claims removed or caveated
+    final_report: str

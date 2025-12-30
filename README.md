@@ -63,6 +63,12 @@ The writer only sees retrieved evidence and upstream notes — not the full corp
             │      Writer Agent      │
             │ src/nodes/writer.py    │
             └────────────────────────┘
+                        │
+                        v
+            ┌────────────────────────┐
+            │    Reviewer Agent      │
+            │ src/nodes/reviewer.py  │
+            └────────────────────────┘
 ```
 
 ## Setup
