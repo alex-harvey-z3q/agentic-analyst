@@ -31,6 +31,40 @@ The writer only sees retrieved evidence and upstream notes — not the full corp
 
 ---
 
+## Architecture
+
+```
+     ┌────────────────────────────────┐      ┌───────────────────────────────────┐
+     │            LangGraph           │◄────►│               Corpus              │
+     │ src/graph.py                   │      │ data/corpus/*.txt                 │
+     │ (workflow + AgentState flow)   │      │ → embeddings → Chroma (tools.py)  │
+     └───────────────┬────────────────┘      └───────────────────────────────────┘
+                     │
+                     v
+            ┌────────────────────────┐
+            │     Planner Agent      │
+            │ src/nodes/planner.py   │
+            └───────────┬────────────┘
+                        │
+                        v
+            ┌────────────────────────┐
+            │   Researcher Agent     │
+            │ src/nodes/researcher.py│
+            └───────────┬────────────┘
+                        │
+                        v
+            ┌────────────────────────┐
+            │     Analyst Agent      │
+            │ src/nodes/analyst.py   │
+            └───────────┬────────────┘
+                        │
+                        v
+            ┌────────────────────────┐
+            │      Writer Agent      │
+            │ src/nodes/writer.py    │
+            └────────────────────────┘
+```
+
 ## Setup
 
 Add your OpenAI API key to a `.env` file:
