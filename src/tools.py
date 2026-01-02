@@ -1,51 +1,133 @@
-from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
+from __future__ import annotations
+
+import re
 from pathlib import Path
-from config import client, MODEL_NAME
+from typing import List
+
+from langchain_community.vectorstores import Chroma
+from langchain_core.documents import Document
+from langchain_openai import OpenAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from src.config import MODEL_NAME, client
 
 # Embedding model used to convert text into vectors for similarity search.
 EMBED_MODEL = "text-embedding-3-small"
 
+# Matches: lyrics/AbbeyRoad/Because.txt
+_PATH_LINE_RE = re.compile(r"^lyrics/(?P<album>[^/]+)/(?P<file>[^/]+)\.txt\s*$")
 
-def build_vectorstore(corpus_dir: str = "data/corpus") -> Chroma:
+def _song_from_file_stem(stem: str) -> str:
+    # Carry_That_Weight -> Carry That Weight
+    return stem.replace("_", " ").strip()
+
+
+def load_beatles_lyrics_corpus(corpus_path: str) -> List[Document]:
     """
-    Build a Chroma vector store from all .txt files in the corpus directory.
+    Parse beatles_lyrics.txt into one Document per song.
 
-    Steps:
-    - Load all text files as Documents.
-    - Split them into smaller overlapping chunks.
-    - Embed those chunks using OpenAI embeddings.
-    - Store them in a Chroma vector database for fast semantic search.
+    Expected repeated block format:
+
+      lyrics/Album/Song_Name.txt
+      ===
+      <lyrics...>
+      ===
+
+    - Album and song title are derived from the path line.
+    - Lyrics are stored in page_content.
+    - Metadata includes: song, album, source_path.
     """
-    corpus_dir = Path(corpus_dir)
+    text = Path(corpus_path).read_text(encoding="utf-8")
+    lines = text.splitlines()
 
-    docs = []
+    docs: List[Document] = []
+    i = 0
 
-    for path in corpus_dir.glob("*.txt"):
-        # TextLoader wraps a text file and knows how to load it as Documents.
-        loader = TextLoader(str(path), encoding="utf-8")
+    while i < len(lines):
+        # Skip blank lines
+        if not lines[i].strip():
+            i += 1
+            continue
 
-        # loader.load() returns a list of Documents; we extend docs with them.
-        docs.extend(loader.load())
+        m = _PATH_LINE_RE.match(lines[i].strip())
+        if not m:
+            # Unexpected line; skip rather than failing hard.
+            i += 1
+            continue
 
-    # Split long documents into overlapping chunks.
-    # This helps retrieval: instead of retrieving whole files, we fetch
-    # smaller, more precise pieces of text.
+        album = m.group("album").strip()
+        file_stem = m.group("file").strip()
+        song = _song_from_file_stem(file_stem)
+        source_path = lines[i].strip()
+        i += 1
+
+        # Seek opening delimiter ===
+        while i < len(lines) and not lines[i].strip():
+            i += 1
+        if i >= len(lines) or lines[i].strip() != "===":
+            # Malformed block; skip
+            continue
+        i += 1
+
+        # Collect lyrics until closing ===
+        lyric_lines: List[str] = []
+        while i < len(lines) and lines[i].strip() != "===":
+            lyric_lines.append(lines[i])
+            i += 1
+
+        # Consume closing === if present
+        if i < len(lines) and lines[i].strip() == "===":
+            i += 1
+
+        lyrics = "\n".join(lyric_lines).strip()
+        if lyrics:
+            docs.append(
+                Document(
+                    page_content=lyrics,
+                    metadata={
+                        "song": song,
+                        "album": album,
+                        "source_path": source_path,
+                    },
+                )
+            )
+
+    return docs
+
+
+def build_vectorstore(corpus_path: str = "data/corpus/beatles_lyrics.txt") -> Chroma:
+    """
+    Build a Chroma vector store from the Beatles lyrics corpus.
+
+    The corpus is stored as a single text file containing many songs in
+    the following repeated format:
+
+        lyrics/Album/Song_Name.txt
+        ===
+        <lyrics...>
+        ===
+
+    Processing steps:
+    - Parse the file into one Document per song
+    - Attach stable metadata (song title, album, source path)
+    - Split lyrics into overlapping chunks for retrieval
+    - Embed and index chunks in Chroma
+    """
+
+    # Parse the single lyrics file into per-song Documents
+    song_docs = load_beatles_lyrics_corpus(corpus_path)
+
+    # Split each song into overlapping chunks
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,    # target size of each chunk in characters
-        chunk_overlap=150, # how much chunks overlap with each other
+        chunk_size=800,
+        chunk_overlap=150,
     )
-    split_docs = splitter.split_documents(docs)
+    split_docs = splitter.split_documents(song_docs)
 
-    # Create an embeddings object that will call the OpenAI embeddings API
-    # with the chosen embedding model.
+    # Create embeddings for each chunk
     embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
 
-    # Build a Chroma vector store from the split documents:
-    # - Each chunk is embedded into a vector.
-    # - The vectors + original text are stored in the "corpus" collection.
+    # Build the vector store from the chunked documents
     vectordb = Chroma.from_documents(
         split_docs,
         embedding=embeddings,
@@ -60,6 +142,29 @@ def build_vectorstore(corpus_dir: str = "data/corpus") -> Chroma:
 _vectordb = None
 
 
+def _get_vectordb() -> Chroma:
+    """
+    Internal helper to lazily initialise the vector store once per process.
+    """
+    global _vectordb
+    if _vectordb is None:
+        _vectordb = build_vectorstore()
+    return _vectordb
+
+
+def rag_retrieve(query: str, k: int = 5) -> List[Document]:
+    """
+    Retrieve the top-k most relevant chunks as Document objects.
+
+    Use this when you need:
+    - metadata (song/album/source_path) for attribution
+    - programmatic inspection/debugging
+    - evidence contracts in downstream agents
+    """
+    vectordb = _get_vectordb()
+    return vectordb.similarity_search(query, k=k)
+
+
 def rag_search(query: str, k: int = 5) -> str:
     """
     Perform the 'retrieval' part of RAG.
@@ -71,18 +176,11 @@ def rag_search(query: str, k: int = 5) -> str:
 
     Note: This does NOT return the whole corpus; only the most relevant pieces.
     """
-    global _vectordb
-
-    # Build the vectorstore only once (lazy initialisation).
-    if _vectordb is None:
-        _vectordb = build_vectorstore()
-
-    # Ask Chroma for the k most similar chunks to the query.
-    docs = _vectordb.similarity_search(query, k=k)
+    docs = rag_retrieve(query, k=k)
 
     # Join the retrieved text chunks with blank lines between them.
     # This string is what we pass as "Context" to the LLM.
-    return "\n\n".join([d.page_content for d in docs])
+    return "\n\n".join(d.page_content for d in docs)
 
 
 def call_llm(system_prompt: str, user_prompt: str) -> str:
@@ -100,6 +198,7 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
             {"role": "user", "content": user_prompt},
         ],
         max_output_tokens=1200,  # Upper bound on response length.
+        temperature=0,
     )
 
     # Extract the text from the Responses API structure:

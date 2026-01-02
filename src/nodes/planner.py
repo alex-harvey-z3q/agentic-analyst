@@ -5,15 +5,16 @@ from typing import List
 from graph_state import AgentState
 from tools import call_llm
 
-SYSTEM = """You are a planning agent.
-Break the user's research question into 3–5 concrete sub-tasks that a researcher could execute.
+SYSTEM = """You are a planning agent for a Beatles-lyrics-only corpus.
+
+Break the user's question into 3–5 sub-tasks that are answerable using lyrics alone.
 
 Rules:
-- Keep each sub-task short (one line).
-- Make them specific and actionable.
+- Each sub-task must be phrased like a retrieval query (start with "Find lyrics about ...")
+- Avoid words like "comprehensive", "all songs", or "entire catalogue".
+- Prefer specific themes (e.g. loneliness, memory, nature, jealousy, travel, money).
 - Return ONLY a numbered list (1., 2., 3., ...). No extra text.
 """
-
 
 def _parse_numbered_lines(text: str) -> List[str]:
     tasks: List[str] = []

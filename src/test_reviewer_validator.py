@@ -1,6 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from src.nodes.planner import planner_node
 from src.nodes.researcher import researcher_node
 from src.nodes.analyst import analyst_node
+from src.nodes.writer import writer_node
+from src.nodes.reviewer_validator import reviewer_validator_node
 
 question = "What themes and lyrical motifs recur across The Beatles’ songs?"
 
@@ -9,20 +15,14 @@ print(question)
 
 state = {"question": question, "logs": []}
 
-# 1) planner
 state = planner_node(state)
-print("\nSUB_TASKS:")
-for task in state.get("sub_tasks", []):
-    print("-", task)
-
-# 2) researcher
 state = researcher_node(state)
-
-# 3) analyst
 state = analyst_node(state)
+state = writer_node(state)
+state = reviewer_validator_node(state)
 
-print("\nANALYSIS:")
-print(state.get("analysis", ""))
+print("\nVALIDATED REPORT (with issues list):")
+print(state.get("validated_report", ""))
 
 print("\nLOGS:")
 for log in state.get("logs", []):

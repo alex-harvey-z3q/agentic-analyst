@@ -1,7 +1,10 @@
-.PHONY: lint clean
+.PHONY: lint test clean
 
 lint:
 	ruff check .
+
+test:
+	pytest -q tests
 
 clean:
 	find . -type f -name "*.pyc" -delete

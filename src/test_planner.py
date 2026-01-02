@@ -1,22 +1,25 @@
-from nodes.planner import planner_node
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-if __name__ == "__main__":
-    question = "What themes and lyrical motifs recur across The Beatles’ songs?"
+from src.nodes.planner import planner_node
 
-    print("\nQUESTION:")
-    print(question)
+question = "What themes and lyrical motifs recur across The Beatles’ songs?"
 
-    state = {
-        "question": question,
-        "logs": []
-    }
+print("\nQUESTION:")
+print(question)
 
-    out = planner_node(state)
+state = {
+    "question": question,
+    "logs": []
+}
 
-    print("\nSUB_TASKS:")
-    for task in out.get("sub_tasks", []):
-        print("-", task)
+out = planner_node(state)
 
-    print("\nLOGS:")
-    for log in out.get("logs", []):
-        print(log)
+print("\nSUB_TASKS:")
+for task in out.get("sub_tasks", []):
+    print("-", task)
+
+print("\nLOGS:")
+for log in out.get("logs", []):
+    print(log)

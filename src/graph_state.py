@@ -21,7 +21,7 @@ Keeping the shared state explicitly defined in one place makes the system:
 - Safer to extend (new agents = new fields)
 """
 
-from typing import List, TypedDict
+from typing import List, Dict, TypedDict, Any
 
 
 class AgentState(TypedDict, total=False):
@@ -41,9 +41,9 @@ class AgentState(TypedDict, total=False):
     # Optional debug / trace messages added by agents
     logs: List[str]
 
-    # Researcher output: evidence-based notes per sub-task
-    # (e.g. lyric excerpts, song references, short interpretations)
-    research_notes: List[str]
+    # Each item should be a dict like:
+    # {"task": str, "song": str, "quote": str, "theme": str}
+    evidence: List[Dict[str, Any]]
 
     # Analyst output: synthesized insights and patterns
     # derived from the research notes
