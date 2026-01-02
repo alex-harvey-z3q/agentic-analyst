@@ -16,7 +16,8 @@ Love is all, love is you
 
 Because the sky is blue
 It makes me cry
-Because the sky is blue===
+Because the sky is blue
+===
 lyrics/AbbeyRoad/Carry_That_Weight.txt
 ===
 Boy, you're gonna carry that weight
@@ -32,7 +33,8 @@ I break down
 Boy, you're gonna carry that weight
 Carry that weight a long time
 Boy, you're gonna carry that weight
-Carry that weight a long time===
+Carry that weight a long time
+===
 lyrics/AbbeyRoad/Come_Together.txt
 ===
 Shoot me
@@ -105,7 +107,8 @@ Come together, yeah
 Come together, yeah
 Come together, yeah
 Come together, yeah
-Come together, yeah===
+Come together, yeah
+===
 lyrics/AbbeyRoad/Golden_Slumbers.txt
 ===
 Once there was a way
@@ -125,7 +128,8 @@ To get back homeward
 Once there was a way
 To get back home
 Sleep, pretty darling, do not cry
-And I will sing a lullaby===
+And I will sing a lullaby
+===
 lyrics/AbbeyRoad/Her_Majesty.txt
 ===
 Her Majesty's a pretty nice girl
@@ -136,7 +140,8 @@ I wanna tell her that I love her a lot
 But I gotta get a belly full of wine
 Her Majesty's a pretty nice girl
 Someday I'm gonna make her mine
-Oh yeah, someday I'm gonna make her mine===
+Oh yeah, someday I'm gonna make her mine
+===
 lyrics/AbbeyRoad/Here_Comes_The_Sun.txt
 ===
 Here comes the sun
@@ -177,7 +182,8 @@ It's all right
 Here comes the sun
 Here comes the sun
 It's all right
-It's all right===
+It's all right
+===
 lyrics/AbbeyRoad/I_Want_You_Shes_So_Heavy.txt
 ===
 I want you 
@@ -281,7 +287,8 @@ Whoa, whoa, whoa-oh
 
 (Do-do do-doo-doo)
 
-Silver hammer man===
+Silver hammer man
+===
 lyrics/AbbeyRoad/Mean_Mr_Mustard.txt
 ===
 Mean Mr. Mustard sleeps in the park
@@ -300,7 +307,8 @@ Takes him out to look at the Queen
 Only place that he's ever been
 Always shouts out something obscene
 Such a dirty old man
-Dirty old man===
+Dirty old man
+===
 lyrics/AbbeyRoad/Octopuss_Garden.txt
 ===
 I'd like to be under the sea
@@ -334,7 +342,8 @@ No one there to tell us what to do
 I'd like to be under the sea
 In an octopus's garden with you
 In an octopus's garden with you
-In an octopus's garden with you===
+In an octopus's garden with you
+===
 lyrics/AbbeyRoad/Oh_Darling.txt
 ===
 Oh, darling
@@ -380,7 +389,8 @@ Please believe me
 I'll never let you down
 Oh, believe me, darling
 Believe me when I tell you - whoo!
-I'll never do you no harm===
+I'll never do you no harm
+===
 lyrics/AbbeyRoad/Polythene_Pam.txt
 ===
 Well you should see Polythene Pam
@@ -411,7 +421,8 @@ Three
 Four
 Five
 Six
-Seven===
+Seven
+===
 lyrics/AbbeyRoad/She_Came_In_Through_The_Bathroom_Window.txt
 ===
 Oh listen to that now
@@ -443,7 +454,8 @@ Didn't anybody tell her?
 Didn't anybody see?
 Sundays on the phone to Monday
 Tuesdays on the phone to me
-Oh, yeah===
+Oh, yeah
+===
 lyrics/AbbeyRoad/Something.txt
 ===
 Something in the way she moves
@@ -467,7 +479,8 @@ Something in the way she knows
 And all I have to do is think of her
 Something in the things she shows me
 I don't want to leave her now
-You know I believe and how===
+You know I believe and how
+===
 lyrics/AbbeyRoad/Sun_King.txt
 ===
 Here come the sun king
@@ -480,7 +493,8 @@ Here come the sun king
 
 Quando para mucho mi amore de felice corazón
 Mundo paparazzi mi amore chicka ferdy parasol
-Cuesto obrigado tanta mucho que canite carousel===
+Cuesto obrigado tanta mucho que canite carousel
+===
 lyrics/AbbeyRoad/The_End.txt
 ===
 Oh yeah
@@ -497,7 +511,8 @@ Love you, love you, love you, love you
 
 And in the end
 The love you take
-Is equal to the love you make===
+Is equal to the love you make
+===
 lyrics/AbbeyRoad/You_Never_Give_Me_Your_Money.txt
 ===
 You never give me your money
@@ -555,7 +570,8 @@ All good children go to heaven
 One, two, three, four, five, six, seven
 All good children go to heaven
 One, two, three, four, five, six, seven
-All good children go to heaven===
+All good children go to heaven
+===
 lyrics/AHardDaysNight/A_Hard_Days_Night.txt
 ===
 It's been a hard day's night
@@ -1199,7 +1215,8 @@ I ain't got nothin' but love, babe
 Eight days a week
 
 Eight days a week
-Eight days a week===
+Eight days a week
+===
 lyrics/BeatlesForSale/Every_Little_Thing.txt
 ===
 When I'm walking beside her
@@ -1232,7 +1249,8 @@ And you know the things she does
 She does for me, ooh
 
 Every little thing
-Every little thing===
+Every little thing
+===
 lyrics/BeatlesForSale/Everybodys_Trying_To_Be_My_Baby.txt
 ===
 Well, they took some honey from a tree
@@ -1268,7 +1286,8 @@ Dressed it up and they called it me
 
 Everybody's trying to be my baby
 Everybody's trying to be my baby
-Everybody's trying to be my baby, now===
+Everybody's trying to be my baby, now
+===
 lyrics/BeatlesForSale/Honey_Dont.txt
 ===
 Well, how come you say you will when you won't?
@@ -1321,7 +1340,8 @@ Well, honey, don't
 Well, honey, don't
 A little little honey, don't
 I say you will when you won't
-Ah-ah, honey, don't===
+Ah-ah, honey, don't
+===
 lyrics/BeatlesForSale/I_Dont_Want_To_Spoil_The_Party.txt
 ===
 I don't want to spoil the party, so I'll go
@@ -1358,7 +1378,8 @@ Though I've had a drink or two and I don't care
 There's no fun in what I do if she's not there
 I wonder what went wrong
 I've waited far too long
-If I think I'll take a walk and look for her===
+If I think I'll take a walk and look for her
+===
 lyrics/BeatlesForSale/Ill_Follow_The_Sun.txt
 ===
 One day you'll look 
@@ -1392,7 +1413,8 @@ In the end you will know, oh
 One day you'll find 
 That I have gone
 But tomorrow may rain, so
-I'll follow the sun===
+I'll follow the sun
+===
 lyrics/BeatlesForSale/Im_A_Loser.txt
 ===
 I'm a loser
@@ -1427,7 +1449,8 @@ I'm telling you so that you won't lose all
 I'm a loser
 And I lost someone who's near to me
 I'm a loser
-And I'm not what I appear to be===
+And I'm not what I appear to be
+===
 lyrics/BeatlesForSale/Kansas_City_Hey_Hey_Hey_Hey.txt
 ===
 Ah, Kansas City
@@ -1476,7 +1499,8 @@ Bye-bye, baby, bye-bye
 (Bye-bye, bye-bye, bye-bye)
 Whoo, so long
 (So long, so long, so long)
-Bye-bye, baby===
+Bye-bye, baby
+===
 lyrics/BeatlesForSale/Mr_Moonlight.txt
 ===
 Mr. Moonlight
@@ -1555,7 +1579,8 @@ I nearly died
 With another man in my place
 
 No reply
-No reply===
+No reply
+===
 lyrics/BeatlesForSale/Rock_And_Roll_Music.txt
 ===
 Just let me hear some of that rock and roll music
@@ -1616,7 +1641,8 @@ It's got a black beat, you can't lose it
 Any old time you use it
 Oughta got rock-roll music
 If you wanna dance with me
-If you wanna dance with me===
+If you wanna dance with me
+===
 lyrics/BeatlesForSale/What_Youre_Doing.txt
 ===
 Look what you're doing
@@ -1649,7 +1675,8 @@ You have got me crying, girl
 Why should it be so much to ask of you
 What you're doing to me?
 What you're doing to me
-What you're doing to me===
+What you're doing to me
+===
 lyrics/BeatlesForSale/Words_Of_Love.txt
 ===
 Hold me close
@@ -1666,7 +1693,8 @@ Darling, when you're near
 
 Words of love you
 Whisper soft and true
-Darling, I love you===
+Darling, I love you
+===
 lyrics/Help/Act_Naturally.txt
 ===
 They're going to put me in the movies
@@ -1697,7 +1725,8 @@ The movie's going to make me a big star
 Well I hope you come and see me in the movies
 Then I’ll know that you will plainly see
 The biggest fool that ever hit the big time
-And all I got to do is act naturally===
+And all I got to do is act naturally
+===
 lyrics/Help/Another_Girl.txt
 ===
 For I have got another girl
@@ -1731,7 +1760,8 @@ I ain't no fool and I don't take what I don't want
 For I have got another girl
 Another girl
 
-Another girl===
+Another girl
+===
 lyrics/Help/Dizzy_Miss_Lizzy.txt
 ===
 You make me dizzy, Miss Lizzy
@@ -1767,7 +1797,8 @@ Put your little hand in mine, girl
 You make me dizzy, dizzy, Lizzy
 Girl, you look so fine
 You're just a-rockin' and a-rollin'
-Ooh, I said I wish you were mine===
+Ooh, I said I wish you were mine
+===
 lyrics/Help/Help.txt
 ===
 Help! I need somebody
@@ -1876,7 +1907,8 @@ Just what you mean to me
 I need you
 I need you
 
-I need you===
+I need you
+===
 lyrics/Help/Its_Only_Love.txt
 ===
 I get high when I see you go by
@@ -1902,7 +1934,8 @@ Why should I feel the way I do?
 It's only love and that is all
 But it's so hard loving you
 Yes, it's so hard loving you
-Loving you===
+Loving you
+===
 lyrics/Help/Ive_Just_Seen_A_Face.txt
 ===
 I've just seen a face
@@ -1947,7 +1980,8 @@ Me back again
 
 Oh, falling, yes, I am falling
 And she keeps calling
-Me back again===
+Me back again
+===
 lyrics/Help/Tell_Me_What_You_See.txt
 ===
 If you let me take your heart
@@ -1988,7 +2022,8 @@ Tryin' to get to you?
 Open up your eyes now
 Tell me what you see
 It is no surprise now
-What you see is me===
+What you see is me
+===
 lyrics/Help/The_Night_Before.txt
 ===
 We said our goodbyes (Ah, the night before)
@@ -2028,7 +2063,8 @@ Was I so unwise? (Ah, the night before)
 When I held you near
 You were so sincere
 Treat me like you did the night before
-Like the night before===
+Like the night before
+===
 lyrics/Help/Ticket_To_Ride.txt
 ===
 I think I'm gonna be sad
@@ -2088,7 +2124,8 @@ But she don't care
 My baby don't care
 My baby don't care
 My baby don't care
-My baby don't care===
+My baby don't care
+===
 lyrics/Help/Yesterday.txt
 ===
 Yesterday
@@ -2119,7 +2156,8 @@ Now I long for yesterday
 Yesterday
 Love was such an easy game to play
 Now I need a place to hide away
-Oh, I believe in yesterday===
+Oh, I believe in yesterday
+===
 lyrics/Help/You_Like_Me_Too_Much.txt
 ===
 Though you've gone away this morning, you'll be back again tonight
@@ -2144,7 +2182,8 @@ If you leave me, I will follow you and bring you back where you belong
 'Cause I couldn't really stand it I'd admit that I was wrong
 I wouldn't let you leave me 'cause it's true
 'Cause you like me too much and I like you
-'Cause you like me too much and I like you===
+'Cause you like me too much and I like you
+===
 lyrics/Help/Youre_Going_To_Lose_That_Girl.txt
 ===
 You're gonna lose that girl
@@ -2235,7 +2274,8 @@ Gather round, all you clowns
 Let me hear you say
 
 Hey, you've got to hide your love away
-Hey, you've got to hide your love away===
+Hey, you've got to hide your love away
+===
 lyrics/LetItBe/Across_The_Universe.txt
 ===
 Words are flowing out like endless rain into a paper cup
@@ -2278,7 +2318,8 @@ Jai guru deva
 Jai guru deva
 Jai guru deva
 Jai guru deva
-Jai guru deva===
+Jai guru deva
+===
 lyrics/LetItBe/Dig_A_Pony.txt
 ===
 "I Rolling?
@@ -2379,7 +2420,8 @@ I feel it now, I hope you feel it too
 Because you're sweet and lovely, girl, I love you
 Because you're sweet and lovely, girl, it's true
 I love you more than ever, girl, I do
-I'm having the blues===
+I'm having the blues
+===
 lyrics/LetItBe/Get_Back.txt
 ===
 Rosetta
@@ -2441,7 +2483,8 @@ Get back
 Oooh!
 
 Thanks, Mo!
-I'd like to say thank you on behalf of the group and ourselves, and I hope we passed the audition===
+I'd like to say thank you on behalf of the group and ourselves, and I hope we passed the audition
+===
 lyrics/LetItBe/I_Me_Mine.txt
 ===
 All through the day
@@ -2482,7 +2525,8 @@ No-one's frightened of playing it
 Everyone's saying it
 Flowing more freely than wine
 All through your life
-I me mine===
+I me mine
+===
 lyrics/LetItBe/Ive_Got_A_Feeling.txt
 ===
 I've got a feeling
@@ -2567,7 +2611,8 @@ I've got a feeling
 Yeah
 
 Oh, my soul
-So hard===
+So hard
+===
 lyrics/LetItBe/Maggie_Mae.txt
 ===
 Oh, dirty Maggie Mae
@@ -2582,7 +2627,8 @@ That dirty no-good robbin' Maggie Mae
 'Tis the part of Liverpool
 Dey returned me to
 Two pound ten a week 
-That was my pay===
+That was my pay
+===
 lyrics/LetItBe/One_After_909.txt
 ===
 My baby says she's travelling
@@ -2643,7 +2689,8 @@ She said she's travelling on the one after 9-0
 She said she's travelling on the one after 909
 
 Oh, Danny Boy
-The altar men are calling===
+The altar men are calling
+===
 lyrics/LetItBe/The_Long_And_Winding_Road.txt
 ===
 The long and winding road
@@ -2680,7 +2727,8 @@ Don't keep me waiting here
 (Don't keep me waiting)
 Lead me to your door
 
-Yeah, yeah, yeah, yeah===
+Yeah, yeah, yeah, yeah
+===
 lyrics/LetItBe/Two_Of_Us.txt
 ===
 "I Dig a Pygmy", by Charles Hawtrey and the Deaf Aids
@@ -2733,7 +2781,8 @@ We're going home
 
 We're going home
 Better believe it
-Goodbye===
+Goodbye
+===
 lyrics/MagicalMysteryTour/All_You_Need_Is_Love.txt
 ===
 Love, love, love
@@ -2953,7 +3002,8 @@ Don't be long
 
 Don't be long
 Don't be long
-Don't be long===
+Don't be long
+===
 lyrics/MagicalMysteryTour/I_Am_The_Walrus.txt
 ===
 I am he as you are he as you are me and we are all together
@@ -3127,7 +3177,8 @@ Coming to take you away
 The Magical Mystery Tour
 Is dying to take you away
 Dying to take you away
-Take you today===
+Take you today
+===
 lyrics/MagicalMysteryTour/Penny_Lane.txt
 ===
 In Penny Lane there is a barber showing photographs
@@ -3171,7 +3222,8 @@ I sit and meanwhile back
 
 Penny Lane is in my ears and in my eyes
 There beneath the blue suburban skies
-Penny Lane===
+Penny Lane
+===
 lyrics/MagicalMysteryTour/The_Fool_On_The_Hill.txt
 ===
 Day after day, alone on a hill
@@ -3220,7 +3272,8 @@ See the world spinning round
 
 Ohhhh
 Round and round and round and round and
-Ohhhh===
+Ohhhh
+===
 lyrics/MagicalMysteryTour/Your_Mother_Should_Know.txt
 ===
 Let's all get up and dance to a song
@@ -3839,7 +3892,8 @@ I'll be 'round
 You tell me that you heard every sound there is 
 And your bird can swing 
 But you can't hear me 
-You can't hear me===
+You can't hear me
+===
 lyrics/Revolver/Doctor_Robert.txt
 ===
 Ring my friend
@@ -3890,7 +3944,8 @@ I said you'd call
 Doctor Robert
 Ring my friend
 I said you'd call Doc Robert
-Doctor Robert===
+Doctor Robert
+===
 lyrics/Revolver/Eleanor_Rigby.txt
 ===
 Ah, look at all the lonely people
@@ -3978,7 +4033,8 @@ You won't forget her
 And in her eyes you see nothing
 No sign of love behind the tears
 Cried for no one
-A love that should have lasted years===
+A love that should have lasted years
+===
 lyrics/Revolver/Good_Day_Sunshine.txt
 ===
 Good day, sunshine
@@ -4091,7 +4147,8 @@ Each one believing that love never die
 Watching their eyes and hoping I'm always there
 
 I will be there and everywhere
-Here, there and everywhere===
+Here, there and everywhere
+===
 lyrics/Revolver/I_Want_To_Tell_You.txt
 ===
 I want to tell you
@@ -4126,7 +4183,8 @@ I don't mind
 I could wait forever
 I've got time
 
-I've got time===
+I've got time
+===
 lyrics/Revolver/Im_Only_Sleeping.txt
 ===
 When I wake up early in the morning
@@ -4169,7 +4227,8 @@ Stay in bed, float upstream (float upstream)
 Please don't wake me
 No, don't shake me
 Leave me where I am
-I'm only sleeping===
+I'm only sleeping
+===
 lyrics/Revolver/Love_You_To.txt
 ===
 Each day just goes so fast
@@ -4192,7 +4251,8 @@ Who'll screw you in the ground
 They'll fill you in with all their sins, you'll see
 
 I'll make love to you
-If you want me to===
+If you want me to
+===
 lyrics/Revolver/She_Said_She_Said.txt
 ===
 She said
@@ -4317,7 +4377,8 @@ Existence to the end
 Of the beginning
 Of the beginning
 
-Of the beginning===
+Of the beginning
+===
 lyrics/Revolver/Yellow_Submarine.txt
 ===
 In the town where I was born
@@ -4361,7 +4422,8 @@ A yellow submarine, yellow submarine
 We all live in a yellow submarine
 Yellow submarine, yellow submarine
 We all live in a yellow submarine
-Yellow submarine, yellow submarine===
+Yellow submarine, yellow submarine
+===
 lyrics/RubberSoul/Drive_My_Car.txt
 ===
 Asked a girl what she wanted to be
@@ -4404,7 +4466,8 @@ Beep-beep mm beep-beep, yeah
 Beep-beep mm beep-beep, yeah
 Beep-beep mm beep-beep, yeah
 Beep-beep mm beep-beep, yeah
-Beep-beep mm beep-beep, yeah===
+Beep-beep mm beep-beep, yeah
+===
 lyrics/RubberSoul/Girl.txt
 ===
 Is there anybody going to listen to my story
@@ -4442,7 +4505,8 @@ Ah, girl
 Girl, girl
 
 Ah, girl
-Girl, girl===
+Girl, girl
+===
 lyrics/RubberSoul/If_I_Needed_Someone.txt
 ===
 If I needed someone to love 
@@ -4473,7 +4537,8 @@ Carve your number on my wall
 And maybe you will get a call from me 
 If I needed someone 
 
-Ah, ah===
+Ah, ah
+===
 lyrics/RubberSoul/Im_Looking_Through_You.txt
 ===
 I'm looking through you 
@@ -4528,7 +4593,8 @@ Yeah, I'm looking through you
 A-you've changed, you've changed 
 You've changed, you've changed
 Yes, you've changed
-I'm looking===
+I'm looking
+===
 lyrics/RubberSoul/In_My_Life.txt
 ===
 There are places I remember
@@ -4554,7 +4620,8 @@ For people and things that went before
 I know I'll often stop and think about them
 In my life I love you more
 
-In my life I love you more===
+In my life I love you more
+===
 lyrics/RubberSoul/Michelle.txt
 ===
 Michelle, ma belle
@@ -4589,7 +4656,8 @@ Michelle, ma belle
 Sont des mots qui vont très bien ensemble
 Très bien ensemble
 And I will say the only words I know that you'll understand
-My Michelle===
+My Michelle
+===
 lyrics/RubberSoul/Norwegian_Wood_(This_Bird_Has_Flown).txt
 ===
 I once had a girl or should I say
@@ -4649,7 +4717,8 @@ He's a real nowhere man
 Sitting in his nowhere land
 Making all his nowhere plans for nobody
 Making all his nowhere plans for nobody
-Making all his nowhere plans for nobody===
+Making all his nowhere plans for nobody
+===
 lyrics/RubberSoul/Run_For_Your_Life.txt
 ===
 Well, I'd rather see you dead, little girl
@@ -4695,7 +4764,8 @@ That's the end, little girl
 Na-na-na
 Na-na-na
 Na-na-na
-Na-na-na===
+Na-na-na
+===
 lyrics/RubberSoul/The_Word.txt
 ===
 Say the word and you'll be free 
@@ -4737,7 +4807,8 @@ Say the word, love
 Say the word, love
 Say the word, love
 Say the word
-Love===
+Love
+===
 lyrics/RubberSoul/Think_For_Yourself.txt
 ===
 I've got a word or two
@@ -4778,7 +4849,8 @@ And go where you're going to
 Think for yourself
 'Cause I won't be there with you
 Think for yourself
-'Cause I won't be there with you===
+'Cause I won't be there with you
+===
 lyrics/RubberSoul/Wait.txt
 ===
 It's been a long time 
@@ -4842,7 +4914,8 @@ We'll forget the tears we cried
 It's been a long time 
 Now I'm coming back home 
 I've been away now 
-Oh, how I've been alone===
+Oh, how I've been alone
+===
 lyrics/RubberSoul/What_Goes_On.txt
 ===
 What goes on in your heart?
@@ -5014,7 +5087,8 @@ Four thousand holes in Blackburn, Lancashire
 And though the holes were rather small
 They had to count them all
 Now they know how many holes it takes to fill the Albert Hall
-I'd love to turn you on===
+I'd love to turn you on
+===
 lyrics/SgtPeppers/Being_For_The_Benefit_Of_Mr_Kite.txt
 ===
 For the benefit of Mr. Kite
@@ -5042,7 +5116,8 @@ Ten somersets he'll undertake on solid ground
 
 Having been some days in preparation
 A splendid time is guaranteed for all
-And tonight Mr. Kite is topping the bill===
+And tonight Mr. Kite is topping the bill
+===
 lyrics/SgtPeppers/Fixing_A_Hole.txt
 ===
 I'm fixing a hole where the rain gets in
@@ -5078,7 +5153,8 @@ And I still go
 I'm fixing a hole where the rain gets in
 And stops my mind from wandering
 Where it will go
-Where it will go===
+Where it will go
+===
 lyrics/SgtPeppers/Getting_Better.txt
 ===
 It's getting better all the time
@@ -5127,7 +5203,8 @@ It's getting better all the time
 It's getting better all the time
 (Better, better, better)
 
-Getting so much better all the time===
+Getting so much better all the time
+===
 lyrics/SgtPeppers/Good_Morning_Good_Morning.txt
 ===
 Good morning
@@ -5185,7 +5262,8 @@ Good morning, good morning, good
 Good morning, good morning, good
 Good morning, good morning, good
 Good morning, good morning, good
-Good morning, good morning, good===
+Good morning, good morning, good
+===
 lyrics/SgtPeppers/Lovely_Rita.txt
 ===
 Ahh-ahh-ahh-ahh-ahh
@@ -5223,7 +5301,8 @@ Give us a wink and make me think of you
 
 Lovely Rita, meter maid
 
-They'll never believe it===
+They'll never believe it
+===
 lyrics/SgtPeppers/Lucy_In_The_Sky_With_Diamonds.txt
 ===
 Picture yourself in a boat on a river
@@ -5261,7 +5340,8 @@ The girl with kaleidoscope eyes
 
 Lucy in the sky with diamonds
 Lucy in the sky with diamonds
-Lucy in the sky with diamonds===
+Lucy in the sky with diamonds
+===
 lyrics/SgtPeppers/Sgt_Peppers_Reprise.txt
 ===
 One, two, three, four
@@ -5319,7 +5399,8 @@ And he wants you all to sing along
 So let me introduce to you
 The one and only Billy Shears
 And Sgt. Pepper's Lonely Hearts Club Band, yeah
-Billy Shears===
+Billy Shears
+===
 lyrics/SgtPeppers/Shes_Leaving_Home.txt
 ===
 Wednesday morning at five o'clock
@@ -5363,7 +5444,8 @@ Something inside that was always denied (Bye bye)
 For so many years
 
 She's leaving home
-Bye bye===
+Bye bye
+===
 lyrics/SgtPeppers/When_Im_Sixty_Four.txt
 ===
 When I get older, losing my hair
@@ -5447,7 +5529,8 @@ Oh I get by with a little help from my friends
 Mm gonna try with a little help from my friends
 Oh I get high with a little help from my friends
 Yes I get by with a little help from my friends
-With a little help from my friends===
+With a little help from my friends
+===
 lyrics/SgtPeppers/Within_You_WIthout_You.txt
 ===
 We were talking about the space between us all
@@ -5476,7 +5559,8 @@ Are you one of them?
 When you've seen beyond yourself
 Then you may find peace of mind is waiting there
 And the time will come when you see
-We're all one and life flows on within you and without you===
+We're all one and life flows on within you and without you
+===
 lyrics/TheBeatles/Back_In_The_USSR.txt
 ===
 Oh
@@ -5565,7 +5649,8 @@ Well, it's my birthday too, yeah
 They say it's your birthday
 We're gonna have a good time
 I'm glad it's your birthday
-Happy birthday to you===
+Happy birthday to you
+===
 lyrics/TheBeatles/Blackbird.txt
 ===
 Blackbird singing in the dead of night
@@ -5591,7 +5676,8 @@ Take these broken wings and learn to fly
 All your life
 You were only waiting for this moment to arise
 You were only waiting for this moment to arise
-You were only waiting for this moment to arise===
+You were only waiting for this moment to arise
+===
 lyrics/TheBeatles/Cry_Baby_Cry.txt
 ===
 Cry, baby, cry
@@ -5760,7 +5846,8 @@ Don't make me blue
 You'll never know it hurt me so
 How I hate to see you go
 Don't pass me by
-Don't make me cry===
+Don't make me cry
+===
 lyrics/TheBeatles/Everybodys_Got_Something_To_Hide_Excpet_For_Me_And_My_Monkey.txt
 ===
 Come on, come on
@@ -5800,7 +5887,8 @@ Make it easy
 Everybody's got something to hide except for me and my monkey
 
 Hey
-(Hey) (whoo) Come on, come on, come on, come on===
+(Hey) (whoo) Come on, come on, come on, come on
+===
 lyrics/TheBeatles/Glass_Onion.txt
 ===
 I told you 'bout Strawberry Fields
@@ -5830,7 +5918,8 @@ Well, here's another place you can be
 Listen to me
 Fixin' the hole in the ocean
 Tryin' to make a dovetail joint, yeah
-Looking through a glass onion===
+Looking through a glass onion
+===
 lyrics/TheBeatles/Good_Night.txt
 ===
 Now, it's time to say good night
@@ -5860,7 +5949,8 @@ Dream sweet dreams for you
 Good night
 Good night, everybody
 Everybody everywhere
-Good night===
+Good night
+===
 lyrics/TheBeatles/Happiness_Is_A_Warm_Gun.txt
 ===
 She's not a girl who misses much
@@ -6021,7 +6111,8 @@ Come, come back to me, honey pie, ha, ha, ha
 Hoo-woo-doo ooh-ooh
 Bo bo
 Buh-huh-buh wa-ooh-uh bo bo
-Honey pie, honey pie===
+Honey pie, honey pie
+===
 lyrics/TheBeatles/I_Will.txt
 ===
 Who knows how long I've loved you?
@@ -6048,7 +6139,8 @@ Oh, you know I will
 I will
 
 Mm
-Da-da-da-da-da-da da===
+Da-da-da-da-da-da da
+===
 lyrics/TheBeatles/Im_So_Tired.txt
 ===
 I'm so tired
@@ -6130,7 +6222,8 @@ Julia
 Mm
 Calls me
 So I sing the song of love for
-Julia, Julia, Julia===
+Julia, Julia, Julia
+===
 lyrics/TheBeatles/Long_Long_Long.txt
 ===
 It's been a long, long, long time
@@ -6151,7 +6244,8 @@ Oh, I love you
 You know that I need you
 Oh, I love you
 
-Oh===
+Oh
+===
 lyrics/TheBeatles/Martha_My_Dear.txt
 ===
 Martha, my dear
@@ -6184,7 +6278,8 @@ You have always been my inspiration, please
 Be good to be
 Martha, my love
 Don't forget me
-Martha, my dear===
+Martha, my dear
+===
 lyrics/TheBeatles/Mother_Nautres_Son.txt
 ===
 Born a poor young country boy
@@ -6204,7 +6299,8 @@ A lazy song beneath the Sun
 
 Yeah, yeah, yeah
 
-Mm, Mother Nature's son===
+Mm, Mother Nature's son
+===
 lyrics/TheBeatles/Ob_La_Di_Ob_La_Da.txt
 ===
 Desmond has a barrow at the marketplace
@@ -6301,7 +6397,8 @@ You can see them out for dinner
 With their piggy wives
 Clutching forks and knives to eat their bacon
 
-One more time===
+One more time
+===
 lyrics/TheBeatles/Revolution_1.txt
 ===
 Right, take two, OK!
@@ -6363,7 +6460,8 @@ All right, all right
 All right, all right
 All right
 All right
-All===
+All
+===
 lyrics/TheBeatles/Revolution_9.txt
 ===
 Bottle of claret for you if I'd realised.
@@ -6511,7 +6609,8 @@ Block that kick
 Block that kick
 Block that kick
 Block that kick
-Block that kick===
+Block that kick
+===
 lyrics/TheBeatles/Rocky_Raccoon.txt
 ===
 Now somewhere in the black mountain hills of Dakota
@@ -6585,7 +6684,8 @@ Come on, Rocky, boy
 Dooo d'n-doo doo doo-doo
 Come on, Rocky, boy
 Doo doo doo doo doo-ta-doo ta-doo-ta-da
-A story of Rocky, da-da-da===
+A story of Rocky, da-da-da
+===
 lyrics/TheBeatles/Savoy_Truffle.txt
 ===
 Creme tangerine, Montelimar
@@ -6620,7 +6720,8 @@ Coffee dessert, yes, you know it's good news (whoo)
 But you'll have to have them all pulled out
 After the Savoy truffle
 Yes, you'll have to have them all pulled out
-After the Savoy truffle===
+After the Savoy truffle
+===
 lyrics/TheBeatles/Sexy_Sadie.txt
 ===
 Sexy Sadie, what have you done?
@@ -6754,7 +6855,8 @@ Still my guitar gently wee-ee-eeps
 Yeah, yeah, yeah
 Yeah, yeah, yeah
 Yeah, yeah, yeah
-Go===
+Go
+===
 lyrics/TheBeatles/Why_Dont_We_Do_It_In_The_Road.txt
 ===
 Why don't we d-do it in the road?
@@ -6787,7 +6889,8 @@ Honey pie, honey pie
 Honey pie, honey pie 
 Honey pie, honey pie 
 I love you
-Honey pie===
+Honey pie
+===
 lyrics/TheBeatles/Yer_Blues.txt
 ===
 (Two, three)
@@ -6844,7 +6947,8 @@ Girl, you know the reason why
 
 In the morning
 Wanna die
-In the evening===
+In the evening
+===
 lyrics/WithTheBeatles/All_Ive_Got_To_Do.txt
 ===
 Whenever I want you around, yeah
@@ -7762,7 +7866,8 @@ Okay
 Quiet!
 
 Hey, bulldog
-Hey, bulldog===
+Hey, bulldog
+===
 lyrics/YellowSubmarine/Its_All_Too_Much.txt
 ===
 To your mother!
@@ -7851,7 +7956,8 @@ Too much, too much
 Too much, too much
 Too much, too much
 Too much, too much
-Too much, too===
+Too much, too
+===
 lyrics/YellowSubmarine/Only_A_Northern_Song.txt
 ===
 If you're listening to this song
@@ -7877,7 +7983,8 @@ Is a little dark and out of key
 You're correct
 There's nobody there
 
-And I told you there's no-one there===
+And I told you there's no-one there
+===
 lyrics/YellowSubmarine/Yellow_Submarine.txt
 ===
 In the town where I was born
@@ -7921,4 +8028,5 @@ A yellow submarine, yellow submarine
 We all live in a yellow submarine
 Yellow submarine, yellow submarine
 We all live in a yellow submarine
-Yellow submarine, yellow submarine===
+Yellow submarine, yellow submarine
+===
