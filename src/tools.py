@@ -1,195 +1,164 @@
 from __future__ import annotations
 
-import re
-from pathlib import Path
-from typing import List
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
-from langchain_community.vectorstores import Chroma
-from langchain_core.documents import Document
-from langchain_openai import OpenAIEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from llama_index.core import Settings, StorageContext, load_index_from_storage
+from llama_index.core.indices.vector_store import VectorStoreIndex
+from llama_index.embeddings.openai import OpenAIEmbedding
 
-from src.config import MODEL_NAME, client
+# QueryFusionRetriever has lived in a few places across versions; prefer core.
+try:
+    from llama_index.core.retrievers import QueryFusionRetriever
+except ImportError:  # older layout
+    from llama_index.core.retrievers import QueryFusionRetriever  # type: ignore
 
-# Embedding model used to convert text into vectors for similarity search.
-EMBED_MODEL = "text-embedding-3-small"
+# BM25Retriever moved between namespaces across versions.
+try:
+    # Newer layout (commonly available in recent llama-index releases)
+    from llama_index.core.retrievers import BM25Retriever
+except ImportError:
+    # Older layout
+    from llama_index.retrievers.bm25 import BM25Retriever  # type: ignore
 
-# Matches: lyrics/AbbeyRoad/Because.txt
-_PATH_LINE_RE = re.compile(r"^lyrics/(?P<album>[^/]+)/(?P<file>[^/]+)\.txt\s*$")
+# SentenceTransformerRerank also moved in some releases.
+try:
+    from llama_index.core.postprocessor import SentenceTransformerRerank
+except ImportError:
+    try:
+        from llama_index.core.postprocessor import SentenceTransformerRerank  # type: ignore
+    except ImportError:
+        from llama_index.postprocessor import SentenceTransformerRerank  # type: ignore
 
-def _song_from_file_stem(stem: str) -> str:
-    # Carry_That_Weight -> Carry That Weight
-    return stem.replace("_", " ").strip()
+from src.config import (
+    EMBED_MODEL,
+    INDEX_PERSIST_DIR,
+    OPENAI_API_KEY,
+    MODEL_NAME,
+    client,
+)
 
 
-def load_beatles_lyrics_corpus(corpus_path: str) -> List[Document]:
+# -----------------------------------------------------------------------------
+# Retrieval contracts
+# -----------------------------------------------------------------------------
+#
+# Public API:
+#   - rag_retrieve(query, k) -> List[RetrievedChunk]
+#   - rag_search(query, k) -> str
+#   - call_llm(system_prompt, user_prompt) -> str
+#
+# Retrieval (rag_*) is corpus-only (no LLM). Generation is in call_llm().
+# -----------------------------------------------------------------------------
+
+
+@dataclass
+class RetrievedChunk:
+    """Stable retrieval result: chunk text + metadata for attribution/debugging."""
+    page_content: str
+    metadata: Dict[str, Any]
+
+
+_index: Optional[VectorStoreIndex] = None
+
+
+def _get_index() -> VectorStoreIndex:
     """
-    Parse beatles_lyrics.txt into one Document per song.
+    Load and cache the persisted local LlamaIndex index.
 
-    Expected repeated block format:
-
-      lyrics/Album/Song_Name.txt
-      ===
-      <lyrics...>
-      ===
-
-    - Album and song title are derived from the path line.
-    - Lyrics are stored in page_content.
-    - Metadata includes: song, album, source_path.
+    Prerequisite: run `python -m src.index_build` (or `make index`) once.
     """
-    text = Path(corpus_path).read_text(encoding="utf-8")
-    lines = text.splitlines()
+    global _index
+    if _index is not None:
+        return _index
 
-    docs: List[Document] = []
-    i = 0
+    # Ensure LlamaIndex is configured with the embedding model used at build time.
+    Settings.embed_model = OpenAIEmbedding(model=EMBED_MODEL, api_key=OPENAI_API_KEY)
 
-    while i < len(lines):
-        # Skip blank lines
-        if not lines[i].strip():
-            i += 1
-            continue
-
-        m = _PATH_LINE_RE.match(lines[i].strip())
-        if not m:
-            # Unexpected line; skip rather than failing hard.
-            i += 1
-            continue
-
-        album = m.group("album").strip()
-        file_stem = m.group("file").strip()
-        song = _song_from_file_stem(file_stem)
-        source_path = lines[i].strip()
-        i += 1
-
-        # Seek opening delimiter ===
-        while i < len(lines) and not lines[i].strip():
-            i += 1
-        if i >= len(lines) or lines[i].strip() != "===":
-            # Malformed block; skip
-            continue
-        i += 1
-
-        # Collect lyrics until closing ===
-        lyric_lines: List[str] = []
-        while i < len(lines) and lines[i].strip() != "===":
-            lyric_lines.append(lines[i])
-            i += 1
-
-        # Consume closing === if present
-        if i < len(lines) and lines[i].strip() == "===":
-            i += 1
-
-        lyrics = "\n".join(lyric_lines).strip()
-        if lyrics:
-            docs.append(
-                Document(
-                    page_content=lyrics,
-                    metadata={
-                        "song": song,
-                        "album": album,
-                        "source_path": source_path,
-                    },
-                )
-            )
-
-    return docs
+    storage_context = StorageContext.from_defaults(persist_dir=INDEX_PERSIST_DIR)
+    _index = load_index_from_storage(storage_context)
+    return _index
 
 
-def build_vectorstore(corpus_path: str = "data/corpus/beatles_lyrics.txt") -> Chroma:
+def _retrieve_nodes(query: str, k: int) -> List[Any]:
     """
-    Build a Chroma vector store from the Beatles lyrics corpus.
-
-    The corpus is stored as a single text file containing many songs in
-    the following repeated format:
-
-        lyrics/Album/Song_Name.txt
-        ===
-        <lyrics...>
-        ===
-
-    Processing steps:
-    - Parse the file into one Document per song
-    - Attach stable metadata (song title, album, source path)
-    - Split lyrics into overlapping chunks for retrieval
-    - Embed and index chunks in Chroma
+    Hybrid retrieval + rerank:
+      1) dense retrieval (vector)
+      2) sparse retrieval (BM25)
+      3) fusion
+      4) cross-encoder rerank down to top-k
     """
+    index = _get_index()
 
-    # Parse the single lyrics file into per-song Documents
-    song_docs = load_beatles_lyrics_corpus(corpus_path)
+    # Retrieve more than k so reranking has room to improve precision.
+    candidate_k = max(30, k * 6)
 
-    # Split each song into overlapping chunks
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=150,
-    )
-    split_docs = splitter.split_documents(song_docs)
+    vector_retriever = index.as_retriever(similarity_top_k=candidate_k)
 
-    # Create embeddings for each chunk
-    embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
-
-    # Build the vector store from the chunked documents
-    vectordb = Chroma.from_documents(
-        split_docs,
-        embedding=embeddings,
-        collection_name="corpus",
+    bm25_retriever = BM25Retriever.from_defaults(
+        docstore=index.docstore,
+        similarity_top_k=candidate_k,
     )
 
-    return vectordb
+    fusion = QueryFusionRetriever(
+        retrievers=[vector_retriever, bm25_retriever],
+        similarity_top_k=candidate_k,
+        num_queries=1,
+        use_async=False,
+    )
+    nodes = fusion.retrieve(query)
+
+    reranker = SentenceTransformerRerank(
+        model="cross-encoder/ms-marco-MiniLM-L-2-v2",
+        top_n=k,
+    )
+    nodes = reranker.postprocess_nodes(nodes, query_str=query)
+    return nodes
 
 
-# Module-level cache for the vectorstore.
-# This avoids rebuilding embeddings on every query.
-_vectordb = None
-
-
-def _get_vectordb() -> Chroma:
+def rag_retrieve(query: str, k: int = 5) -> List[RetrievedChunk]:
     """
-    Internal helper to lazily initialise the vector store once per process.
+    Retrieve top-k chunks with metadata (song/album/source_path if indexed).
     """
-    global _vectordb
-    if _vectordb is None:
-        _vectordb = build_vectorstore()
-    return _vectordb
+    nodes = _retrieve_nodes(query, k=k)
 
+    out: List[RetrievedChunk] = []
+    for nw in nodes:
+        node = nw.node
+        meta = dict(getattr(node, "metadata", {}) or {})
 
-def rag_retrieve(query: str, k: int = 5) -> List[Document]:
-    """
-    Retrieve the top-k most relevant chunks as Document objects.
+        # Be defensive across LlamaIndex versions:
+        if hasattr(node, "get_content"):
+            text = node.get_content()
+        else:
+            text = getattr(node, "text", "")
 
-    Use this when you need:
-    - metadata (song/album/source_path) for attribution
-    - programmatic inspection/debugging
-    - evidence contracts in downstream agents
-    """
-    vectordb = _get_vectordb()
-    return vectordb.similarity_search(query, k=k)
+        out.append(RetrievedChunk(page_content=text, metadata=meta))
+
+    return out
 
 
 def rag_search(query: str, k: int = 5) -> str:
     """
-    Perform the 'retrieval' part of RAG.
-
-    Given a query, this:
-    - Lazily builds the vectorstore on first use.
-    - Runs a semantic similarity search to find the top-k most relevant chunks.
-    - Returns those chunks concatenated into a single context string.
-
-    Note: This does NOT return the whole corpus; only the most relevant pieces.
+    Return a single context string for prompting, with metadata headers per chunk.
     """
-    docs = rag_retrieve(query, k=k)
+    chunks = rag_retrieve(query, k=k)
 
-    # Join the retrieved text chunks with blank lines between them.
-    # This string is what we pass as "Context" to the LLM.
-    return "\n\n".join(d.page_content for d in docs)
+    parts: List[str] = []
+    for c in chunks:
+        song = c.metadata.get("song", "Unknown")
+        album = c.metadata.get("album", "Unknown")
+        src = c.metadata.get("source_path", "Unknown")
+
+        header = f"[SONG={song} | ALBUM={album} | SRC={src}]"
+        parts.append(header + "\n" + c.page_content.strip())
+
+    return "\n\n---\n\n".join(parts)
 
 
 def call_llm(system_prompt: str, user_prompt: str) -> str:
     """
-    Call the OpenAI chat model (Responses API) with:
-    - a system prompt (role / behaviour instructions)
-    - a user prompt (which includes the question + retrieved context)
-
-    Returns the model's generated text as a plain string.
+    Call the OpenAI Responses API for generation.
     """
     resp = client.responses.create(
         model=MODEL_NAME,
@@ -197,13 +166,7 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        max_output_tokens=1200,  # Upper bound on response length.
+        max_output_tokens=1200,
         temperature=0,
     )
-
-    # Extract the text from the Responses API structure:
-    # - output[0] : first candidate
-    # - content[0]: first content item
-    # - .text     : actual text string generated by the model
-    msg = resp.output[0].content[0].text
-    return msg
+    return resp.output[0].content[0].text

@@ -1,26 +1,25 @@
 import sys
+import re
 from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.tools import load_beatles_lyrics_corpus, rag_retrieve
+from src.tools import rag_retrieve
+
+_WORDISH = re.compile(r"[^a-z0-9\s]+")
+
+def _normalize(s: str) -> str:
+    s = s.lower()
+    s = _WORDISH.sub(" ", s)          # drop punctuation
+    s = " ".join(s.split())           # collapse whitespace
+    return s
+
+
+def _contains(haystack: str, needle: str) -> bool:
+    return _normalize(needle) in _normalize(haystack)
+
 
 def main() -> None:
-    corpus_path = "data/corpus/beatles_lyrics.txt"
-
-    print("\n=== PARSE CHECK (first 5 song docs) ===")
-    song_docs = load_beatles_lyrics_corpus(corpus_path)
-    print(f"Parsed {len(song_docs)} song documents.\n")
-
-    for d in song_docs[:5]:
-        print(f"- song={d.metadata.get('song')} album={d.metadata.get('album')}")
-        print(f"  source_path={d.metadata.get('source_path')}")
-        preview = d.page_content.strip().splitlines()[:3]
-        print("  preview:")
-        for line in preview:
-            print(f"    {line}")
-        print()
-
-    print("\n=== RETRIEVAL CHECK (docs + metadata) ===")
     queries = [
         "Yes I'm lonely wanna die",
         "Feel so suicidal",
@@ -28,18 +27,29 @@ def main() -> None:
         "Because the world is round",
     ]
 
+    snippet_chars = 320  # bump this so we can actually see the matching phrase
+
     for q in queries:
         print(f"\nQUERY: {q}")
         docs = rag_retrieve(q, k=5)
+
         for i, d in enumerate(docs, start=1):
             song = d.metadata.get("song", "Unknown")
             album = d.metadata.get("album", "Unknown")
             src = d.metadata.get("source_path", "Unknown")
-            snippet = " ".join(d.page_content.strip().split())[:120]
-            print(f"  {i}. song={song} album={album}")
+
+            text = " ".join(d.page_content.strip().split())
+            snippet = text[:snippet_chars]
+
+            hit = "HIT" if _contains(text, q) else "—"
+
+            print(f"  {i}. [{hit}] song={song} album={album}")
             print(f"     src={src}")
             print(f"     snippet={snippet}...")
-    print()
+
+        # Quick summary signal: did we retrieve at least one verbatim hit?
+        any_hit = any(_contains(d.page_content, q) for d in docs)
+        print(f"  -> Verbatim hit in top-{len(docs)}: {'YES' if any_hit else 'NO'}")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,8 @@
-.PHONY: lint test clean
+.PHONY: index lint test clean
+
+index:
+	@echo "Building retrieval index (this may take a while)..."
+	python -m src.index_build
 
 lint:
 	ruff check .
